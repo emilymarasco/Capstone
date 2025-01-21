@@ -5,7 +5,7 @@
         body {background-color: burlywood;}
         textarea {background-color: hotpink;}
     </style>
-
+    <script src="https://unpkg.com/storejs/dist/store.js"></script>
 </head>
 <body>
 
@@ -22,6 +22,22 @@
 <button id="myBtn">Try it</button>
 
 <p id="demo">
+
+    <button id="testArrayBtn">Test array</button>
+
+    <script type="text/javascript">
+        document.getElementById("testArrayBtn").addEventListener("click", function() {
+            let testArray = store.get('testArray');
+            if (!testArray) {
+                testArray = [];
+            }
+            testArray.push({
+                date: new Date().toISOString(),
+                hi: 'hello'
+            });
+            store.set('testArray', testArray);
+        });
+    </script>
 
     <script>
         const element = document.getElementById("myBtn");
